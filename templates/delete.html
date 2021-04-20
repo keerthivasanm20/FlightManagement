@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>MyCart</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+</head>
+<body>{% if m  %}
+   
+    <table class="table">  
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Flight_name</th>
+         <th scope="col">From_where</th>
+         <th scope="col">To_where</th>
+        
+         <th scope="col">Travel_cost</th>
+         <th scope="col">Available on</th>
+       </tr>
+      
+    </thead>  
+       
+         
+        <tbody>
+            <form action="del"  method="POST"> 
+                {% csrf_token %}
+                {% for k,d in a2.items %}
+                <tr scope="row" >
+      <td> <Label name="Flightname" >{{d.Flightname}}</Label></td>
+      <td> <label name="From_where" value={{d.From_where}}>{{d.From_where}}</label></td>
+      <td>   <label name="To_where" value={{d.To_where}} >{{d.To_where}}</label></td>
+      
+      <td> <label name="Travel_cost " value={{d.Travel_cost}}>{{d.Travel_cost}}</label></td>
+      <td> <label name="dt">{{d.dt}}</label>
+        <td> <label style="visibility: hidden;" name="quantitiy" value={{cap}}>{{d.bill}}</label></td>
+        <td> <button class="btn btn-warning" type="submit" name="dip" value="{{d.Flightname}},{{d.From_where}},{{d.To_where}},{{d.Travel_cost}},{{d.dt}}{{d.Bill}}" >Delete</button></td>
+    </tr>
+    {% endfor %}
+    </form>
+     
+    
+</tbody>
+</table>
+{% else %}
+<form action="del" method="POST">
+    {% csrf_token %}
+   From:<select id="for"  style=" border-radius:5px;"value="Bangalore" name="from" required> 
+    <option value="Keerthi Jetways">
+        Keerthi Jetways
+    </option>
+    <option value="Kingfisher">
+        Kingfisher
+    </option>
+    <option value="AirIndia">
+        AirIndia
+       </option>
+
+   </select>
+  {% endif %} 
+</body>
+</html>

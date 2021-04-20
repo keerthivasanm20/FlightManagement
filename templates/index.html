@@ -1,0 +1,163 @@
+{%load static%}  
+{% if msg %}
+     <script>
+		   alert("Credentials are Not Correct")
+	 </script>
+{% endif %}
+{% if k %}
+{% else %}
+     <script>
+		 alert("Please Login to Use Our Services")
+	 </script>
+{% endif  %}
+{% if errrr %}
+<script>
+	alert("oops....There is Nothing in Your Cart")
+</script>
+{% endif  %}
+<html>
+
+<head>
+<title>FMA</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+
+
+.navbar{
+	margin-left:50px; 
+ margin-bottom:46px;
+
+
+
+
+}
+.color{
+	background:#fff8cd;
+}
+
+.image{
+	margin:5px;
+}
+.row{
+	margin:10px;
+}
+.nav-item{
+	padding-left:45px;
+list-style:none;
+}
+</style>
+<body>
+
+
+
+<div class="head">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a class="navbar-brand" href="#"><h1><span class="glyphicon glyphicon-plane"></span>Keerthi's AirLine </h1></a>
+
+<ul class="navbar-nav">
+<li class="nav-item active">
+<a class="nav-link" href=""><h3><span class="glyphicon glyphicon-home"></span>Home</h3> <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="del"><h3><span class="glyphicon glyphicon-shopping-cart"></span>Mycart<h3></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href=""><h3>About</h3></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="view"><h3><span class="glyphicon glyphicon-search"></span>Search<h3></a>
+</li>
+<li class="nav-item">
+	<a class="nav-link" href=""><h3><span class="	glyphicon glyphicon-phone-alt"></span>Contact us<h3></a>
+	</li>
+<li class="nav-item" style="float:right;top:-5px;">
+
+</li>
+{% ifequal "admin" k %}
+<li class="nav-item">
+	<a class="nav-link" href="add"><h3><span class="glyphicon glyphicon-user"></span>add<h3></a>
+	</li>
+{% endifequal %}
+
+{% if k %}
+<li class="nav-item" style="float:right;padding-top: 20px;">
+	<a class="nav-link" href="logout" >  <button class="btn btn-deafult" >Logout</button></a>
+	</li>
+{% else %}
+<li class="nav-item" style="float:right;padding-top: 20px;">
+<a class="nav-link" href="login" >  <button class="btn btn-deafult" >Login</button></a>
+</li>
+<li class="nav-item" style="float:right;top:15px;padding-top: 20px;">
+	<a class="nav-link" href="signup">  <button class="btn btn-deafult" >Register</button></a>
+	</li>
+{% endif %}
+</ul>
+
+</nav>
+
+
+</div>
+<div class="color">
+
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<h2>GENERAL ANNOUNCEMENT</h2>
+<h4> <p>PLEASE MAINTAIN SOCIAL DISTANCE</p>
+<p>WEAR A MASK , KEEP YOUR HANDS CLEANED</p></h4>
+</div>
+
+</div>
+</div>
+</div>
+<div class="image">
+<div class="row">
+<img class=" col-md-9" src={% static "pexels-vlada-karpovich-4050320.jpg" %} ></img>
+<img class="col-md-3" src={% static "pexels-ian-panelo-3205071.jpg" %} ></img>
+
+</div>
+<div class="row">
+<div class=" col-sm-3"  >
+<a> <h2>Details about Plane Tickets</h2></a>
+
+<h4><p>Dicounts and Offers</p></h4>
+</div>
+<div class="col-sm-3" ><a><h2>INTERNATIONAL Users </h2></a>
+<h4> <p>No Racism</p>
+<p>Provided in all Regional Languages</p></h4></div>
+<div class="col-sm-3"  ><a><h2>FLIGHT TIMINGS</h2></a>
+<h4> <p>any queries realted to it contact us</p>
+</h4></div>
+<div class="col-sm-3"  ><a><h2>What's Next?</h2></a>
+<h4> <p>Discounts for New Users</p>
+</h4></div>
+</div>
+<div class="row">
+<img class="col-sm-4" style="height:400px;width:400px;" src={% static "pexels-julia-m-cameron-4144224.jpg" %} ></img>
+<img class="col-sm-4" style="height:400px;"src={% static "pexels-andrea-piacquadio-3808057.jpg" %} ></img>
+<img class="col-sm-4" style="height:400px;" src={% static "pexels-julia-m-cameron-4145197.jpg" %} ></img>
+
+</div>
+</div>
+
+
+
+<footer  class="page-footer ">
+
+<div class="footer-copyright text-center py-3">© 2021 Copyright:
+	<a href="#">www.Keerthi@jetairlines.com</a>
+	</div>
+
+
+
+	</footer>
+
+	</body>
+	</html>

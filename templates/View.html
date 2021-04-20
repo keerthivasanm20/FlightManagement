@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+{% load static %}
+{% ifequal "ale" a %}
+   <script>
+       alert("The Cities mentioned don't have connection ")
+   </script>
+{% endifequal %}
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script >
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        
+        today = dd + '/' + mm + '/' + yyyy;
+        document.getElementById("date").min=today;
+   
+    
+    </script>
+    <style>
+        body{
+ background:#d2f5e3;
+ 
+  }
+  .relation{
+ 
+ padding-top:40px;
+ margin:100px;
+ margin-right:140px;
+ margin-left:140px;
+  opacity:90%;
+ background:#fcf8ec;
+     border-radius:20px;
+         }
+         .conatiner{
+               position:fixed;
+                 margin-top:140px;
+               
+                   } 
+ </style>
+  
+</head>
+<body>
+    {% if m  %}
+   
+    <table class="table table-striped">    
+        <thead>
+        <tr>
+            <th scope="col">Flight_name</th>
+         <th scope="col" >From_where</th>
+         <th scope="col" >To_where</th>
+         <th scope="col" >Round_Trip</th>
+         <th scope="col" >Travel_cost</th>
+         <th scope="col" >Available on</th>
+         <th scope="col" >TotalCapcity</th>
+       </tr>
+      
+      
+       
+         
+    </thead>
+    <tbody>
+            <form action="book"  method="POST"> 
+                {% csrf_token %}
+                {% for k,d in n.items %}
+            
+                <tr scope="row">
+      <td> <Label name="Flightname" value={{d.Flight_name}}>{{d.Flight_name}}</Label></td>
+      <td> <label name="From_where" value={{d.From_where}}>{{d.From_where}}</label></td>
+      <td>   <label name="To_where" value={{d.To_where}} >{{d.To_where}}</label></td>
+      <td> <label name="Round_Trip" value={{d.Round_Trip}}>{{d.Round_Trip}}</label></td>
+      <td> <label name="Travel_cost " value={{d.Travel_cost}}>{{d.Travel_cost}}</label></td>
+      <td> <label name="dt">{{d.Date}}</label>
+        <td> <label name="quantitiy" value={{cap}}>{{cap}}</label></td>
+        <td> <button class="btn btn-Primary" type="submit" name="dimple" value="{{d.Flight_name}},{{d.From_where}},{{d.To_where}},{{d.Travel_cost}},{{cap}},{{d.Date}}" >Book</button></td>
+    </tr>
+    {% endfor %}
+    </form>
+     
+</tbody>
+    
+</table>
+{% else %}
+<form onsubmit="return validate()" action="view" Method="post">
+    {% csrf_token %}
+<div class="row"> 
+   <div class="form-group">
+  <label for="usr">Enter the Boarding Point:</label>
+  <select id="for"  style=" border-radius:5px;"value="Bangalore" name="from" required> 
+    <option value="Bangalore">
+        Bangalore
+    </option>
+    <option value="Chennai">
+     Chennai
+    </option>
+    <option value="Kolkata">
+        Kolkata
+       </option>
+
+   
+</select>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the Destination:</label>
+  <select id="tor"  style=" border-radius:5px;"value="Bangalore" name="to" required>
+    <option value="Bangalore">
+        Bangalore
+    </option>
+    <option value="Chennai">
+     Chennai
+    </option>
+    <option value="Kolkata">
+        Kolkata
+       </option>
+
+   
+</select>
+  </div>
+</div>
+
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the Traveller Approach:</label>
+  <select id="sele"  style=" border-radius:5px;"value="none" name="berth" required>
+    <option value="Economy">
+     Economy
+    </option>
+    <option value="Buisness">
+        Buisness
+    </option>
+    <option value="Premium Economy">
+        Premium Economy
+       </option>
+
+   
+</select>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the Number of Seats Required:</label>
+ <input id="cap" style=" border-radius:5px;" type="number" name="cap" min="1" max="9" required>
+  </div>
+</div>
+
+       
+    <div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the Date:</label>
+  <input type="Date"  style=" border-radius:5px;"  id="date" name="date"  min="2021-04-21" required>
+  </div>
+</div> 
+       <div class="row">   
+   <button class="btn btn-Primary" type=submit>Search</button >
+</div>
+</div>
+  
+
+{% endif %}
+</body>
+<script>
+    function validate()
+    {
+        if (document.getElementById("tor").value != document.getElementById("for").value)
+       {
+        
+        
+        
+       
+         return true
+        
+       }
+    else{
+       alert("From - To Cannot have same Cities");
+       return false;
+    }
+    
+    }
+</script>
+</html>

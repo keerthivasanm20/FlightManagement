@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Login Post</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+  function validate(){
+   if (document.getElementById("pass").value != document.getElementById("pass2").value)
+       {
+          alert("PassWord MisMatch Error" );
+       }
+    else{
+        return true;
+    }
+    
+    
+    }
+
+</script>
+<style>
+       body{
+background:#d2f5e3;
+
+ }
+ .relation{
+
+padding-top:40px;
+margin:100px;
+margin-right:140px;
+margin-left:140px;
+ opacity:90%;
+background:#fcf8ec;
+    border-radius:20px;
+        }
+        .conatiner{
+              position:fixed;
+                margin-top:140px;
+              
+                  } 
+</style>
+
+</head>
+<body>
+  <a href="sample"><button class="btn btn-default">go to home</button></a>
+ <div class="relation">
+
+<div class="container">
+ <div class="row">  
+      <div class="container" style="margin-left:450px;">
+              <h1> <span class="glyphicon glyphicon-user"></span></h1>
+          </div>    
+</div>
+
+ <form onsubmit="return validate()" action="signup" Method="post"> 
+{% csrf_token %}
+<div class="row"> 
+   <div class="form-group">
+  <label for="usr">Enter the studentname:</label>
+  <input type="name"  id="name" name="name"  class="form-control col-sm-5" required>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the Mailid:</label>
+  <input type="email"  id="sub2" name="email" class="form-control col-sm-5" required>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the Password:</label>
+  <input type="password"  id="sub3" name="pass" class="form-control col-sm-5" required>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the ConfirmPassword:</label>
+  <input type="password"  id="sub4" name="pass2" class="form-control col-sm-5" required>
+  </div>
+</div>
+<div class="row"> 
+    <div class="form-group">
+        <label for="usr">Enter the AdministartionRights:</label>
+     <select id="admin"  style=" border-radius:5px;"value="none" name="admin">
+            <option value="yes">
+                Yes
+            </option>
+            <option value="No">
+             No
+            </option>
+           
+        </select>    
+    </div>
+    </div>
+       <div class="row">   
+   <button class="btn btn-default" type=submit>Signup</button >
+</div>
+</div>
+  
+    
+        
+               
+ 
+
+</form>
+</div>
+</body>
+</html>

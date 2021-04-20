@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>Admin Site</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+       body{
+background:#d2f5e3;
+
+ }
+ .relation{
+
+padding-top:40px;
+margin:100px;
+margin-right:140px;
+margin-left:140px;
+ opacity:90%;
+background:#fcf8ec;
+    border-radius:20px;
+        }
+        .conatiner{
+              position:fixed;
+                margin-top:140px;
+              
+                  } 
+</style>
+
+</head>
+<body>
+  <a href="/"><button class="btn btn-default">go to home</button></a>
+ <div class="relation">
+
+<div class="container">
+ 
+
+ <form  action="add"Method="post">
+ {% csrf_token %} 
+<div class="row"> 
+   <div class="form-group">
+  <label for="usr">Enter the Flight name:</label>
+  <input type="text" name="name" id="name"  class="form-control col-sm-5" required>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the Start:</label>
+  <input type="text" name="from" id="sub2"  class="form-control col-sm-5" required>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the Destination:</label>
+  <input type="text" name="to" id="sub3"  class="form-control col-sm-5" required>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+<label for="usr">Select RoundTrip:</label>
+ <select id="admin"  style=" border-radius:5px;"value="none" name="rtrip">
+          <option value="yes">
+              Yes
+          </option>
+          <option value="No">
+           No
+          </option>
+         
+      </select>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Select Date:</label>
+  <input type="date" name="date" id="sub5"  class="form-control col-sm-5" required>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr">Select RoundTripDate:</label>
+  <input type="date" name="rdate" id="sub6"  class="form-control col-sm-5" required>
+  </div>
+</div>
+       <div class="row">     
+   <div class="form-group">
+  <label for="usr">Enter the capacity of the Plane:</label>
+  <input type="text" name="cap" id="sub7"  class="form-control col-sm-5" required>
+  </div>
+</div><div class="row">     
+   <div class="form-group">
+  <label for="usr">Cost Of Travel:</label>
+  <input type="text" name="cost" id="sub8"  class="form-control col-sm-5" required>
+  </div>
+</div>
+    <div class="row">     
+   <div class="form-group">
+ <label for="usr">Enter Flight Id:</label>
+  <input type="text" placeholder="FlightId" name="Fid"class="form-control col-sm-5" required>
+  </div>
+</div> 
+       <div class="row">   
+   <button class="btn btn-default" type=submit>Create</button >
+</div>
+</div>
+  
+    
+        
+               
+ 
+
+</form>
+</div>
+ <form action="logout" method="POST">
+        {% csrf_token %}   
+        <button type="submit" placeholder="SignUp">Logout</button>
+    </form>
+</body>
+</html>

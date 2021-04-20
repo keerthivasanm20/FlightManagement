@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Booked Details</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+       body{
+background:#d2f5e3;
+
+ }
+ .relation{
+
+padding-top:40px;
+margin:100px;
+margin-right:140px;
+margin-left:140px;
+ opacity:90%;
+background:#fcf8ec;
+    border-radius:20px;
+        }
+        .conatiner{
+              position:fixed;
+                margin-top:140px;
+              
+                  } 
+</style>
+
+</head>
+<body>
+  <a href=""><button class="btn btn-default">go to home</button></a>
+ <div class="relation">
+
+<div class="container">
+
+
+ <div class="row">     
+   <div class="form-group">
+  <label for="usr" name="pass">Flight name: {{data.Flightname}}</label>
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr" name="pass">From Where:{{data.From_where}} </label>
+ 
+  </div>
+</div>
+
+<div class="row">     
+   <div class="form-group">
+  <label for="usr" name="pass">To Where    : {{data.To_where}} </label>
+ 
+  </div>
+</div>
+
+<div class="row">     
+   <div class="form-group">
+  <label for="usr" name="pass">Date        : {{data.dt}} </label>
+ 
+  </div>
+</div>
+<div class="row">     
+   <div class="form-group">
+  <label for="usr" name="pass">Bill        : {{data.bill}}</label>
+ 
+  </div>
+</div>
+
+
+       <div class="row">   
+   <button class="btn btn-default" ><a href="logsample">Homr</a></button >
+</div>
+</div>
+  
+    
+        
+               
+ 
+
+</form>
+</div>
+</body>
+</html>
