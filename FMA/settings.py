@@ -27,7 +27,7 @@ SECRET_KEY = '91t#)=izncg3n0ck#-+oupv%9+a@yueii7v+=03eal5=&07m#d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["fmaapp.herokuapp.com"]
 
 
 # Application definition
