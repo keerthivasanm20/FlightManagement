@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>MyCart</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    body{
+background:#d2f5e3;
+
+}
+.relation{
+
+padding-top:40px;
+margin:100px;
+margin-right:140px;
+margin-left:140px;
+opacity:90%;
+background:#fcf8ec;
+ border-radius:20px;
+     }
+     .conatiner{
+           position:fixed;
+             margin-top:140px;
+           
+               } 
+</style>
+
+</head>
+<body>
+    
+<form action="deleadmin" method="POST">
+    {% csrf_token %}
+    <div class="row"> 
+        <div class="form-group">
+            <label for="usr">Enter the Date to be Removed From the Schedule:</label>
+             <input type="date" style=" border-radius:5px;" name="date">
+            </div>
+            </div>
+            <div class="row"> 
+   <button class="btn btn-Warning" type="submit">Delete</button>
+   </div>
+</form>
+  
+</body>
+</html>

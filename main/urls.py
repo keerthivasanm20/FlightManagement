@@ -13,5 +13,6 @@ urlpatterns = [
      path("book",views.book),
      path("logsample",views.logsample),
      path("del",views.dele),
+     path("deleadmin",views.deleadmin),
 
 ]

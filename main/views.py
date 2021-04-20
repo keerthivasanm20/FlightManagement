@@ -244,7 +244,42 @@ def book(request):
       except KeyError:
             mg="User Logged out please sign in again"
             return render(request,'index.html',{'msg':mg}) 
-
+def deleadmin(request):
+  
+  if request.method == "POST":  
+    dip=request.POST.get("date")
+    
+    print(dip)
+    global user  
+            #print(user)
+    idtoken=user['idToken']
+    a = auth1.get_account_info(idtoken)
+    a = a['users']
+    a=a[0]
+    a = a['localId']
+    category =["Chennai","Bangalore","Kolkata"]
+    ans=[]
+    for i in range(3):
+      #print(fkid[category[i]][0])
+      for j in range(len(fkid[category[i]])):  
+           
+         ans.append(database.child("users").child("Flight_Detail_card").child(category[i]).child(fkid[category[i]][j]).child("Date").get().val())
+         #print(ans)                          
+                           
+         #print(ans[i])
+         #print(dip)   
+         print(fkid[category[i]][0])     
+         if str(ans[i]) == str(dip):
+                      database.child("users").child("Flight_Detail_card").child(category[i]).child(fkid[category[i]][j]).remove()
+                      #return render(request,"index.html",{"k":"k"})
+  
+    return render(request,"index.html",{"k":"admin"})
+  else:
+        
+            #print(user)
+        
+        return render(request,"deleteadmin.html",{"m":'m',"a2":"a2"})
+ 
 def dele(request):
   global user  
   if request.method == "POST":  
