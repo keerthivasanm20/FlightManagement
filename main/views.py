@@ -11,7 +11,7 @@ config = {
   "measurementId": "G-RB67K33HC5"
 }
 user=""
-fkid={"Bangalore":['FKj01','FKJ02'],"Chennai":['FKJ06'],"Kolkata":['FKJO4']}
+fkid={"Bangalore":['FKj01','FKJ02'],"Chennai":['FKJ06','FK08','FK010'],"Kolkata":['FKJO4','FKO7','FK09','FK013']}
 firebase=pyrebase.initialize_app(config)
 auth1 = firebase.auth()
 database=firebase.database()
@@ -177,6 +177,12 @@ def add(request):
           #pushing into the firebase 
           database.child("users").child("Flight_Detail_card").child(fro).child(Fid).set(data)
           name=database.child("users").child("Flight_Detail_card").child(fro).child(Fid).get().val()
+          if fro  not in fkid:
+          
+               fkid[fro]=list(Fid)
+          else:
+                if Fid not in fkid[fro]:
+                     fkid[fro]=list(Fid)
           for key, value in name.items():
                     print(key, value)
              
@@ -259,7 +265,11 @@ def deleadmin(request):
     a = a['localId']
     category =["Chennai","Bangalore","Kolkata"]
     ans=[]
-    for i in range(3):
+    count=0
+    for i in fkid:
+          count+=len(fkid[i])
+    print(count)
+    for i in range(count):
       #print(fkid[category[i]][0])
       for j in range(len(fkid[category[i]])):  
            
@@ -269,7 +279,8 @@ def deleadmin(request):
          #print(ans[i])
          #print(dip)   
          print(fkid[category[i]][0])     
-         if str(ans[i]) == str(dip):
+         if (ans[i]) == (dip):
+                      print("hello"+fkid[category[i]][j])
                       database.child("users").child("Flight_Detail_card").child(category[i]).child(fkid[category[i]][j]).remove()
                       #return render(request,"index.html",{"k":"k"})
   
